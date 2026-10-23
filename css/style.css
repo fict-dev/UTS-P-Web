@@ -1,0 +1,774 @@
+/* ==========================================================================
+   MONITORING UMKM - STYLESHEET RESMI (STREAMLINED VERSION)
+   Dibuat 100% Native CSS, Sangat Mudah Dibaca & Terstruktur Rapi
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Palet Warna Primer */
+  --primary: #065f46;            /* Hijau emerald pekat */
+  --primary-hover: #044e39;      /* State hover hijau */
+  --primary-light: #ecfdf5;      /* Background badge hijau muda */
+  --primary-border: #a7f3d0;     /* Border badge hijau */
+  --primary-accent: #059669;
+
+  /* Warna Netral */
+  --text-dark: #0f172a;          /* Teks gelap utama (Slate 900) */
+  --text-body: #334155;          /* Teks isi paragraf (Slate 700) */
+  --text-muted: #64748b;         /* Teks sekunder (Slate 500) */
+  --text-white: #ffffff;
+
+  /* Warna Latar Belakang */
+  --bg-white: #ffffff;
+  --bg-stats: #eff6ff;          /* Biru muda lembut untuk bagian statistik */
+  --bg-footer: #182232;         /* Biru gelap (Dark Navy) untuk footer */
+  --border-light: #e2e8f0;
+
+  /* Tipografi */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
+
+  /* Transisi */
+  --transition: all 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & DASAR ELEMEN
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER / NAVBAR
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 65px;
+  object-fit: contain;
+  display: block;
+  transition: var(--transition);
+}
+
+.brand-logo:hover .logo-img {
+  transform: scale(1.04);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.logo-subtitle {
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Navigasi Menu */
+.main-nav .nav-list {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+/* Aksi Kanan Header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-text {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.btn-text:hover {
+  color: var(--primary);
+}
+
+.btn-primary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(6, 95, 70, 0.2);
+}
+
+.btn-primary-pill:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+
+.mobile-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   4. HERO SECTION (TAMPILAN TERPUSAT / CENTERED)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 72px 0 88px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.hero-container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 820px;
+}
+
+/* Badge Pill Hijau Atas */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  color: var(--primary);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.badge-emoji {
+  font-size: 1rem;
+}
+
+/* Judul Utama */
+.hero-title {
+  font-size: 3.35rem;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+/* Garis Bawah Hijau Khas */
+.highlight-underline {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 3.5px;
+}
+
+/* Deskripsi Hero */
+.hero-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 34px;
+}
+
+/* Tombol CTA Hero */
+.hero-cta-wrap {
+  margin-bottom: 40px;
+  
+}
+
+.btn-hero-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 14px 19px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(6, 95, 70, 0.25);
+}
+
+.btn-hero-green:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 95, 70, 0.35);
+}
+
+/* Social Proof */
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #dbeafe;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-left: -8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.avatar-circle:first-child {
+  margin-left: 0;
+}
+
+.avatar-plus {
+  background-color: #a7f3d0;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.725rem;
+}
+
+.rating-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars-gold {
+  color: #f59e0b;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.rating-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.rating-text {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   5. STATISTIK / METRICS SECTION (LIGHT BLUE BACKGROUND)
+   -------------------------------------------------------------------------- */
+.stats-section {
+  padding: 64px 0;
+  background-color: var(--bg-stats);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.stat-box {
+  padding: 10px 32px;
+}
+
+.stat-box.divider-side {
+  border-left: 1px solid #dbeafe;
+}
+
+.stat-number {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.stat-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.stat-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 320px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   6. CALL TO ACTION (CTA FULL WIDTH HIJAU TUA)
+   -------------------------------------------------------------------------- */
+.cta-section {
+  background-color: var(--primary);
+  padding: 88px 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 760px;
+}
+
+.cta-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.cta-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 640px;
+  margin: 0 auto 36px auto;
+  line-height: 1.65;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-cta-white {
+  background-color: #ffffff;
+  color: var(--primary);
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.925rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cta-white:hover {
+  background-color: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.btn-cta-outline {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.925rem;
+  font-weight: 600;
+}
+
+.btn-cta-outline:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   7. FOOTER (DARK THEME NAVY / SLATE)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--bg-footer);
+  color: #94a3b8;
+  padding-top: 64px;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+}
+
+.footer-logo {
+  margin-bottom: 16px;
+}
+
+.footer-logo-img {
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 3px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.footer-about-text {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  max-width: 380px;
+}
+
+.footer-col-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.footer-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link-list a {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.footer-link-list a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 0;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.825rem;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   8. MODAL INTERAKTIF (POPUP)
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 36px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 1.75rem;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--text-dark);
+}
+
+.modal-head {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.modal-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px auto;
+}
+
+.modal-logo-img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.modal-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.form-field label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-field input {
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.15);
+}
+
+.btn-submit-modal {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 13px;
+  border-radius: var(--radius-pill);
+  font-size: 0.925rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.btn-submit-modal:hover {
+  background-color: var(--primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE MEDIA QUERIES
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .main-nav {
+    position: fixed;
+    top: 74px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-light);
+    padding: 20px 24px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .stat-box.divider-side {
+    border-left: none;
+    border-top: 1px solid #dbeafe;
+    padding-top: 24px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .cta-heading {
+    font-size: 1.85rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-cta-white,
+  .btn-cta-outline {
+    width: 100%;
+  }
+}
