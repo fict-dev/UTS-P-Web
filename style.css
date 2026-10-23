@@ -1,0 +1,385 @@
+/* ==========================================================================
+   LABAPRO / MONITORING UMKM - LOGIN STYLESHEET
+   Didesain modern, bersih, elegan & responsif dengan palet Emerald Green
+   ========================================================================== */
+
+:root {
+  --primary: #065f46;
+  --primary-hover: #044e39;
+  --primary-light: #ecfdf5;
+  --primary-border: #a7f3d0;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #e6f4ea 50%, #eff6ff 100%);
+  --font-family: 'Poppins', sans-serif;
+  --shadow-card: 0 20px 40px -15px rgba(6, 95, 70, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  color: var(--text-dark);
+}
+
+/* Kartu Login Utama */
+.kartu-login {
+  background: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Badge Portal */
+.badge-portal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Judul & Subjudul */
+.judul {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.sub-judul {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* Grup Form */
+.form-grup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-grup label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.form-grup .wajib {
+  color: #ef4444;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.label-row label {
+  margin-bottom: 0;
+}
+
+.link-lupa {
+  font-size: 0.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.link-lupa:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Input Box */
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ikon-kiri {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  font-family: inherit;
+  font-size: 0.925rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  background-color: #f8fafc;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.input-box input:focus {
+  background-color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.12);
+}
+
+.input-box input::placeholder {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Tombol Mata (Show/Hide Password) */
+.tombol-mata {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 1.1rem;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.tombol-mata:hover {
+  color: var(--primary);
+}
+
+/* Baris Ingat Saya */
+.baris-ingat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.baris-ingat input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.baris-ingat label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Tombol Masuk */
+.tombol-masuk {
+  width: 100%;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(6, 95, 70, 0.25);
+  transition: all 0.2s ease;
+}
+
+.tombol-masuk:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(6, 95, 70, 0.35);
+}
+
+.tombol-masuk:active {
+  transform: translateY(0);
+}
+
+/* Pemisah ATAU */
+.pemisah-atau {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.pemisah-atau::before,
+.pemisah-atau::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.pemisah-atau span {
+  padding: 0 12px;
+}
+
+/* Teks Daftar */
+.teks-daftar {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.teks-daftar a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.teks-daftar a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Link */
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.footer-link a {
+  color: #64748b;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.footer-link a:hover {
+  color: var(--primary);
+}
+
+.footer-link .titik {
+  color: #cbd5e1;
+}
+
+/* Tombol Kembali ke Beranda */
+.kembali-beranda {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.kembali-beranda:hover {
+  color: var(--primary);
+}
+
+/* Alert Error Login */
+.alert-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+/* Info Box Data Dummy */
+.info-dummy {
+  background-color: #f0fdf4;
+  border: 1px dashed #86efac;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 22px;
+  font-size: 0.8rem;
+  color: #166534;
+}
+
+.info-dummy-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.info-dummy-body {
+  color: #14532d;
+  font-size: 0.78rem;
+}
+
+.info-dummy-body code {
+  background-color: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #15803d;
+  font-family: monospace;
+}
